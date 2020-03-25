@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "StopWaldoDocs",
+    "version": "1.0",
+    "description": "View rather English docs instead of quirky machine translated docs.",
+    "icons": {
+        "48": "icons/stopwaldodocs-48.svg",
+        "96": "icons/stopwaldodocs-48.svg"
+    },
+    "applications": {
+        "gecko": {
+          "id": "stopwaldodocs@joveler.kr"
+        }
+    },
+    "permissions": [
+        "<all_urls>",
+        "tabs"
+    ],
+    "background": {
+        "scripts": [
+            "rewrite_list.js",
+            "rewrite_url.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://docs.microsoft.com/ko-kr"],
+            "js": ["detect_mt.js"]
+        }
+    ]
+}
