@@ -9,23 +9,30 @@
     },
     "applications": {
         "gecko": {
-          "id": "stopwaldodocs@joveler.kr"
+            "id": "stopwaldodocs@joveler.kr"
+        }
+    },
+    "browser_action": {
+        "browser_style": true,
+        "default_title": "StopWaldoDocs",
+        "default_popup": "popup/status.html",
+        "default_icon": {
+            "16": "icons/stopwaldodocs-48.svg",
+            "32": "icons/stopwaldodocs-48.svg",
+            "48": "icons/stopwaldodocs-48.svg"
         }
     },
     "permissions": [
-        "<all_urls>",
-        "tabs"
+        "http://*/*",
+        "https://*/*",
+        "tabs",
+        "activeTab"
     ],
     "background": {
         "scripts": [
-            "rewrite_list.js",
-            "rewrite_url.js"
+            "const.js",
+            "background/redirect_list.js",
+            "background/redirect_url.js"
         ]
-    },
-    "content_scripts": [
-        {
-            "matches": ["*://docs.microsoft.com/ko-kr"],
-            "js": ["detect_mt.js"]
-        }
-    ]
+    }
 }
