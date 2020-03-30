@@ -1,17 +1,7 @@
 "use strict";
 
 function getMeta(key) {
-    /*
-    const metas = document.getElementsByTagName("meta");
-    for (let i = 0; i < metas.length; i++) {
-        console.log(metas[i]);
-        if (metas[i].getAttribute("name") === key) {
-            return metas[i].getAttribute("content");
-        }
-    }
-    return null;
-    */
-    var query = document.querySelector(`meta[name='${key}']`);
+    let query = document.querySelector(`meta[name='${key}']`);
     if (query === null)
         return null;
     return query.getAttribute("content");
